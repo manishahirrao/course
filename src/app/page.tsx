@@ -5,6 +5,7 @@ import {
   BoltIcon, RefreshIcon, ComputerIcon, VideoIcon, GlobeIcon, SparklesIcon
 } from '@/components/Icons';
 import styles from './page.module.css';
+import HeroSlideshow from '@/components/HeroSlideshow';
 
 export default function Home() {
   return (
@@ -40,23 +41,7 @@ export default function Home() {
           </div>
 
           <div className={styles.heroVisual}>
-            <div className={styles.visualCard}>
-              <div className={styles.visualCardHeader}>
-                <h3>Publications & Books</h3>
-                <p>Print & Digital Editions</p>
-                <div className={styles.visualCardIcon}><BookIcon color="white" /></div>
-              </div>
-              <div className={styles.visualCardBody}>
-                <div style={{ marginBottom: '16px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ready-to-Publish Content</div>
-                <div className={styles.visualList}>
-                  <div className={styles.visualListItem}><BookIcon className={styles.visualListIcon} /> Fully Formatted Books</div>
-                  <div className={styles.visualListItem}><SparklesIcon className={styles.visualListIcon} /> Custom Branding</div>
-                  <div className={styles.visualListItem}><DocumentTextIcon className={styles.visualListIcon} /> Print-Ready PDFs</div>
-                  <div className={styles.visualListItem}><ComputerIcon className={styles.visualListIcon} /> eBook Compatible</div>
-                </div>
-                <div style={{ marginTop: '24px', fontSize: '0.7rem', color: 'var(--text-muted)' }}>ISBN registration available</div>
-              </div>
-            </div>
+            <HeroSlideshow />
           </div>
         </div>
       </section>
