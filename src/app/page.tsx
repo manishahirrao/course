@@ -20,7 +20,7 @@ export default function Home() {
           <div className={styles.heroText}>
             <div className={styles.heroBadge}>
               <SparklesIcon width="16" height="16" />
-              Content lab • White-Label Content Partner
+              Contenu lab • White-Label Content Partner
             </div>
             <h1 className="heading-xl">
               Ready-Made Study Material{' '}
