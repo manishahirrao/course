@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Content Coverage | Academics, Competitive Exams & CS | Continue Labs',
+    title: 'Content Coverage | Academics, Competitive Exams & CS | Contenu Labs',
     description: 'Explore our comprehensive content coverage across academics, competitive exams, and computer science.',
 };
 

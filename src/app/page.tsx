@@ -328,7 +328,7 @@ export default function Home() {
       {/* Offer Banner */}
       <section className={styles.offerBanner}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <span className="badge badge-orange" style={{ marginBottom: '16px' }}>New Partner Benefit from Continue Labs</span>
+          <span className="badge badge-orange" style={{ marginBottom: '16px' }}>New Partner Benefit from Contenu Labs</span>
           <h2 className="heading-lg">
             Exclusive <span style={{ color: 'var(--accent-orange)' }}>10% Off</span> on Your First Content Package
           </h2>
@@ -464,17 +464,17 @@ export default function Home() {
               <span className="text-gradient">Questions</span>
             </h2>
             <p className="text-md" style={{ color: 'var(--text-secondary)', marginTop: '8px' }}>
-              Please reach us at contact@continuelabs.ai if you cannot find an answer to your question.
+              Please reach us at info@contenulabs.com if you cannot find an answer to your question.
             </p>
           </div>
           <div className={styles.faqList}>
             {[
-              { q: 'What types of content does Continue Labs provide?', a: 'We provide comprehensive white-label study materials, mock tests, question banks, daily current affairs, and practice papers for competitive exams (Banking, SSC, Railways), academics (CBSE, ICSE), and entrance exams (JEE, NEET).' },
+              { q: 'What types of content does Contenu Labs provide?', a: 'We provide comprehensive white-label study materials, mock tests, question banks, daily current affairs, and practice papers for competitive exams (Banking, SSC, Railways), academics (CBSE, ICSE), and entrance exams (JEE, NEET).' },
               { q: 'Can I use this content under my own brand?', a: 'Yes! All content comes with full white-label rights. You can publish and distribute it under your brand name with complete ownership and no recurring royalties.' },
               { q: 'How is the content delivered?', a: 'Content is delivered in multiple formats including PDF, Word documents, and LMS-compatible formats. We also offer direct LMS upload services for seamless integration.' },
               { q: 'Do you provide daily content updates?', a: 'Yes, our Daily Learning Services include daily current affairs PDFs, practice assignments, news bulletins, and short-form video content — all white-labeled for your brand.' },
               { q: 'What if I need custom content?', a: 'We offer custom content creation services. Our expert team can create bespoke study materials, mock tests, and practice papers tailored to your specific requirements.' },
-              { q: 'How can I get started?', a: 'Simply contact us through our Contact page or email us at contact@continuelabs.ai. We\'ll schedule a consultation to understand your needs and provide a personalized solution.' },
+              { q: 'How can I get started?', a: 'Simply contact us through our Contact page or email us at info@contenulabs.com. We\'ll schedule a consultation to understand your needs and provide a personalized solution.' },
             ].map((faq, i) => (
               <details key={i} className={styles.faqItem}>
                 <summary className={styles.faqQuestion}>{faq.q}</summary>
@@ -493,7 +493,7 @@ export default function Home() {
         <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <h2 className="heading-xl">
             Launch Your Content Library with{' '}
-            <span className="text-gradient">Continue Labs</span>
+            <span className="text-gradient">Contenu Labs</span>
           </h2>
           <p className="text-lg" style={{ color: 'var(--text-secondary)', marginTop: '16px', maxWidth: '600px', margin: '16px auto 0' }}>
             Join hundreds of education partners already scaling with our white-label content solutions.

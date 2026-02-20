@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Refund Policy | Continue Labs',
-    description: 'Refund Policy for Continue Labs content purchases and services.',
+    title: 'Refund Policy | Contenu Labs',
+    description: 'Refund Policy for Contenu Labs content purchases and services.',
 };
 
 export default function RefundPolicyPage() {
@@ -28,11 +28,11 @@ export default function RefundPolicyPage() {
                     </div>
                     <div>
                         <h2 className="heading-md" style={{ color: 'var(--text-primary)', marginBottom: '12px' }}>4. Refund Process</h2>
-                        <p>To request a refund, email us at contact@continuelabs.ai with your order details and reason. We will review and respond within 3-5 business days. Approved refunds are processed within 7-10 business days.</p>
+                        <p>If you have any questions about our refund policy, please contact us at info@contenulabs.com with your order details and reason. We will review and respond within 3-5 business days. Approved refunds are processed within 7-10 business days.</p>
                     </div>
                     <div>
                         <h2 className="heading-md" style={{ color: 'var(--text-primary)', marginBottom: '12px' }}>5. Contact</h2>
-                        <p>For refund inquiries, reach us at <a href="mailto:contact@continuelabs.ai" style={{ color: 'var(--accent-blue-light)' }}>contact@continuelabs.ai</a> or call <a href="tel:+919370781368" style={{ color: 'var(--accent-blue-light)' }}>+91 9370781368</a>.</p>
+                        <p>For refund inquiries, reach us at <a href="mailto:info@contenulabs.com" style={{ color: 'var(--accent-blue-light)' }}>info@contenulabs.com</a> or call <span style={{ color: 'var(--accent-blue-light)' }}>+91-8234050544, 9755317284, 7000791256</span>.</p>
                     </div>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Last updated: February 2026</p>
                 </div>

@@ -158,7 +158,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const solution = solutionsData[slug];
     if (!solution) return { title: 'Not Found' };
     return {
-        title: `${solution.title} | Continue Labs`,
+        title: `${solution.title} | Contenu Labs`,
         description: solution.description,
     };
 }

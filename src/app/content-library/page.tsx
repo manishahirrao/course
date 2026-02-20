@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Content Library | Free Sample Study Materials | Continue Labs',
+    title: 'Content Library | Free Sample Study Materials | Contenu Labs',
     description: 'Download free sample study materials, mock tests, and question banks to preview our content quality.',
 };
 

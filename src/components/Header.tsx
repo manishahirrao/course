@@ -21,7 +21,7 @@ export default function Header() {
                     <div style={{ position: 'relative', width: '180px', height: '50px' }}>
                         <Image
                             src="/assets/continue-labs-logo.png"
-                            alt="Continue Labs Logo"
+                            alt="Contenu Labs Logo"
                             fill
                             style={{ objectFit: 'contain', objectPosition: 'left' }}
                             priority
@@ -37,6 +37,7 @@ export default function Header() {
                         <Link href="/solutions" className={styles.navLink}>Solutions <span className={styles.chevron}>▾</span></Link>
                         {activeDropdown === 'solutions' && (
                             <div className={styles.dropdownMenu}>
+                                <Link href="/white-label-solutions" className={styles.dropdownItem}>White Label Solutions</Link>
                                 <Link href="/solutions/white-label-study-material" className={styles.dropdownItem}>White Label Study Material</Link>
                                 <Link href="/solutions/daily-learning-services" className={styles.dropdownItem}>Daily Learning Services</Link>
                                 <Link href="/solutions/software-platform-solutions" className={styles.dropdownItem}>Software Platform Solutions</Link>
@@ -63,6 +64,7 @@ export default function Header() {
                                 <Link href="/content-coverage/academics" className={styles.dropdownItem}>Academics</Link>
                                 <Link href="/content-coverage/competitive-exams" className={styles.dropdownItem}>Competitive Exams</Link>
                                 <Link href="/content-coverage/computer-science" className={styles.dropdownItem}>Computer Science</Link>
+                                <Link href="/digital-marketing" className={styles.dropdownItem}>Digital Marketing</Link>
                                 <div className={styles.dropdownDivider} />
                                 <Link href="/content-library" className={styles.dropdownItem}>Sample Library</Link>
                             </div>
@@ -101,6 +103,8 @@ export default function Header() {
                         </button>
                         {activeDropdown === 'm-solutions' && (
                             <div className={styles.mobileSubMenu}>
+                                <Link href="/solutions" onClick={() => setMobileOpen(false)} style={{ fontWeight: 600 }}>All Solutions</Link>
+                                <Link href="/white-label-solutions" onClick={() => setMobileOpen(false)}>White Label Solutions</Link>
                                 <Link href="/solutions/white-label-study-material" onClick={() => setMobileOpen(false)}>White Label Study Material</Link>
                                 <Link href="/solutions/daily-learning-services" onClick={() => setMobileOpen(false)}>Daily Learning Services</Link>
                                 <Link href="/solutions/software-platform-solutions" onClick={() => setMobileOpen(false)}>Software Platform Solutions</Link>
@@ -113,6 +117,7 @@ export default function Header() {
                         </button>
                         {activeDropdown === 'm-products' && (
                             <div className={styles.mobileSubMenu}>
+                                <Link href="/products" onClick={() => setMobileOpen(false)} style={{ fontWeight: 600 }}>All Products</Link>
                                 <Link href="/products?tab=study-materials" onClick={() => setMobileOpen(false)}>Study Materials</Link>
                                 <Link href="/products?tab=mock-tests" onClick={() => setMobileOpen(false)}>Mock Tests</Link>
                             </div>
@@ -122,9 +127,11 @@ export default function Header() {
                         </button>
                         {activeDropdown === 'm-content' && (
                             <div className={styles.mobileSubMenu}>
+                                <Link href="/content-coverage" onClick={() => setMobileOpen(false)} style={{ fontWeight: 600 }}>Overview</Link>
                                 <Link href="/content-coverage/academics" onClick={() => setMobileOpen(false)}>Academics</Link>
                                 <Link href="/content-coverage/competitive-exams" onClick={() => setMobileOpen(false)}>Competitive Exams</Link>
                                 <Link href="/content-coverage/computer-science" onClick={() => setMobileOpen(false)}>Computer Science</Link>
+                                <Link href="/digital-marketing" onClick={() => setMobileOpen(false)}>Digital Marketing</Link>
                                 <Link href="/content-library" onClick={() => setMobileOpen(false)}>Sample Library</Link>
                             </div>
                         )}

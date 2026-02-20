@@ -112,7 +112,7 @@ export default function ContactPage() {
                                 )}
                                 {status === 'error' && (
                                     <p style={{ color: 'var(--accent-red)', marginTop: '12px', textAlign: 'center' }}>
-                                        ❌ Failed to send. Please email us directly at contact@continuelabs.ai
+                                        ❌ Failed to send. Please email us directly at info@contenulabs.com
                                     </p>
                                 )}
                             </form>
@@ -127,14 +127,14 @@ export default function ContactPage() {
                                         <span>✉️</span>
                                         <div>
                                             <strong>Email</strong>
-                                            <a href="mailto:contact@continuelabs.ai">contact@continuelabs.ai</a>
+                                            <a href="mailto:info@contenulabs.com">info@contenulabs.com</a>
                                         </div>
                                     </div>
                                     <div className={styles.infoItem}>
                                         <span>📞</span>
                                         <div>
                                             <strong>Phone</strong>
-                                            <a href="tel:+919370781368">+91 9370781368</a>
+                                            <p>+91-8234050544, 9755317284, 7000791256</p>
                                         </div>
                                     </div>
                                     <div className={styles.infoItem}>

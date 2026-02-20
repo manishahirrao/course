@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Blog | Education Content Insights | Continue Labs',
+    title: 'Blog | Education Content Insights | Contenu Labs',
     description: 'Insights, tips, and updates on education content, EdTech trends, and exam preparation strategies.',
 };
 
@@ -100,7 +100,7 @@ export default function BlogPage() {
                         <span className="text-gradient">Updates in Your Inbox?</span>
                     </h2>
                     <p className="text-lg" style={{ color: 'var(--text-secondary)', marginTop: '16px', maxWidth: '500px', margin: '16px auto 0' }}>
-                        Stay informed with the latest from Continue Labs — delivered directly to your email.
+                        Stay informed with the latest from Contenu Labs — delivered directly to your email.
                     </p>
                     <Link href="/contact" className="btn btn-primary btn-lg" style={{ marginTop: '28px' }}>
                         Get in Touch

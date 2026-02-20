@@ -49,7 +49,7 @@ export default function LoginPage() {
                         <div style={{ position: 'relative', width: '200px', height: '60px' }}>
                             <Image
                                 src="/assets/continue-labs-logo.png"
-                                alt="Continue Labs Logo"
+                                alt="Contenu Labs Logo"
                                 fill
                                 style={{ objectFit: 'contain', objectPosition: 'center' }}
                             />

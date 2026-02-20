@@ -18,15 +18,16 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Continue Labs - Enterprise EdTech Solutions',
+  metadataBase: new URL('https://contenulabs.com'),
+  title: 'Contenu Labs - White Label Education Solutions | Content That Drives Growth',
   description:
-    'Empowering the future of education with advanced technology solutions. Continue Labs provides white-label content, platforms, and AI-driven tools for educational institutions.',
-  keywords: 'EdTech, education technology, white-label content, LMS, AI in education, Continue Labs',
+    'Empowering educators with India\'s leading white label study material platform. Contenu Labs provides white-label content, test series, and digital media branding for coaching institutes and EdTech platforms.',
+  keywords: 'EdTech, education technology, white-label content, white label study material, test series, competitive exams, Contenu Labs, coaching institute solutions',
   openGraph: {
-    title: 'Continue Labs - Enterprise EdTech Solutions',
-    description: 'Empowering the future of education with advanced technology solutions.',
+    title: 'Contenu Labs - White Label Education Solutions',
+    description: 'Your Study Material, Your Brand — No Co-Branding. Empowering educators with India\'s leading white label study material platform.',
     type: 'website',
-    url: 'https://continuelabs.ai',
+    url: 'https://contenulabs.com',
   },
 };
 

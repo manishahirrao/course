@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const data = categoryData[category];
     if (!data) return { title: 'Not Found' };
     return {
-        title: `${data.title} Content Coverage | Continue Labs`,
+        title: `${data.title} Content Coverage | Contenu Labs`,
         description: data.description,
     };
 }
