@@ -79,6 +79,7 @@ export default function Footer() {
             <div className={styles.bottomBar}>
                 <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
                     <p className={styles.copyright}>© 2026 Contenu Labs. All rights reserved.</p>
+                    <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Designed & Developed by <a href="https://adwikindia.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-blue-light)', fontWeight: 600 }}>AdwikIndia</a></p>
                     <div className={styles.legalLinks}>
                         <Link href="/privacy-policy">Privacy Policy</Link>
                         <Link href="/terms-of-service">Terms of Service</Link>
