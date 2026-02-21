@@ -12,17 +12,11 @@ export default function ContactPage() {
         e.preventDefault();
         setStatus('loading');
         try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-            if (res.ok) {
-                setStatus('success');
-                setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-            } else {
-                setStatus('error');
-            }
+            const subject = encodeURIComponent(`Contact from ${formData.name} - ${formData.company || 'N/A'}`);
+            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`);
+            window.open(`mailto:info@contenulabs.com?subject=${subject}&body=${body}`, '_self');
+            setStatus('success');
+            setFormData({ name: '', email: '', company: '', phone: '', message: '' });
         } catch {
             setStatus('error');
         }
