@@ -34,6 +34,9 @@ export default function Footer() {
                         <div className={styles.contactLink}>
                             📞 +91-8234050544, 9755317284, 7000791256
                         </div>
+                        <div className={styles.contactLink}>
+                            📍 2nd Floor, 8-C Sector, Indrapuri, BHEL, Bhopal, M.P. 462022
+                        </div>
                     </div>
                 </div>
 

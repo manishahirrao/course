@@ -148,7 +148,7 @@ export default function ContactPage() {
                                         <span>📍</span>
                                         <div>
                                             <strong>Location</strong>
-                                            <p>Remote-First Organization, India</p>
+                                            <p>2nd Floor, 8-C Sector, Indrapuri, BHEL, Bhopal, M.P. 462022</p>
                                         </div>
                                     </div>
                                 </div>

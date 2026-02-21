@@ -339,6 +339,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our 500+ Customers */}
+      <section className={`section ${styles.customersSection}`}>
+        <div className="container">
+          <div className="section-header">
+            <span className="badge badge-orange">Trusted Nationwide</span>
+            <h2 className="heading-lg" style={{ marginTop: '16px' }}>
+              Our 500+{' '}
+              <span className="text-gradient">Customers</span>
+            </h2>
+            <p className="text-md" style={{ color: 'var(--text-secondary)', marginTop: '8px' }}>
+              All Over India
+            </p>
+          </div>
+        </div>
+        {/* Row 1 - scrolls left */}
+        <div className={styles.customerMarqueeWrapper}>
+          <div className={styles.customerMarqueeTrack}>
+            {[
+              'Perfection IAS', 'Bharat IAS', 'ICS Coaching Centre', 'Prayas Foundation Indore',
+              'Nischay Academy', 'Vidya Education', 'Vikas IAS', 'Bheem PSC Academy',
+              'VS Education', 'Sabdhani Coaching Institute', 'कौटिल्य एकेडमी', 'Brahmastra Academy',
+              'Paramount Coaching', 'श्री चाणक्य एकेडमी', 'Class Guru JI', 'Exam Success',
+              'Sandipani Academy', 'Agastaya Classes', 'युग निर्माण', 'Vision Academy',
+              'S.I.A.S Academy', 'Lakshya IAS Academy Lucknow', 'रुद्र एकेडमी',
+              'Gopal Prasad Competition Academy', 'सारथी एकेडमी', 'Pathfinder Institute',
+              "Siddhi's IAS Academy Bhopal", 'सिद्धि', 'SK Group', 'गौरी एकेडमी',
+              'Goutam IAS Academy', 'IRA Institute', 'Delhi Career Group',
+            ].map((name, i) => (
+              <div key={`r1a-${i}`} className={styles.customerBadge}>
+                <UsersIcon width="16" height="16" />
+                {name}
+              </div>
+            ))}
+            {[
+              'Perfection IAS', 'Bharat IAS', 'ICS Coaching Centre', 'Prayas Foundation Indore',
+              'Nischay Academy', 'Vidya Education', 'Vikas IAS', 'Bheem PSC Academy',
+              'VS Education', 'Sabdhani Coaching Institute', 'कौटिल्य एकेडमी', 'Brahmastra Academy',
+              'Paramount Coaching', 'श्री चाणक्य एकेडमी', 'Class Guru JI', 'Exam Success',
+              'Sandipani Academy', 'Agastaya Classes', 'युग निर्माण', 'Vision Academy',
+              'S.I.A.S Academy', 'Lakshya IAS Academy Lucknow', 'रुद्र एकेडमी',
+              'Gopal Prasad Competition Academy', 'सारथी एकेडमी', 'Pathfinder Institute',
+              "Siddhi's IAS Academy Bhopal", 'सिद्धि', 'SK Group', 'गौरी एकेडमी',
+              'Goutam IAS Academy', 'IRA Institute', 'Delhi Career Group',
+            ].map((name, i) => (
+              <div key={`r1b-${i}`} className={styles.customerBadge}>
+                <UsersIcon width="16" height="16" />
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Row 2 - scrolls right */}
+        <div className={styles.customerMarqueeWrapper} style={{ marginTop: '12px' }}>
+          <div className={`${styles.customerMarqueeTrack} ${styles.customerMarqueeReverse}`}>
+            {[
+              'Ram Raman Civil Academy', 'JHSS+', 'मणि शिक्षा संस्थान', "The Officer's Academy",
+              'KV Knowledge Villa', 'World Hunter Academy', 'Hello Classes', 'La Win All Classes',
+              'Abhimanyu Academy', 'Jha Sir Academy For IAS', 'Pariksha', 'IAS Academy',
+              'अपराजित IAS Academy Jabalpur', 'Shiksha', 'Bond Classes', 'उड़ान एकेडमी',
+              'Avyan School of IAS', 'Parikshadham Publication', 'Chauhan Academy',
+              'सकल्प Indian Institute', 'Madhav Academy', 'AFP Academy', 'Vinayaka IAS Academy',
+              'GK Trick by Rishi Gupta', 'Krishna Mudgal Classes', 'Select Edu',
+              'Agnihotri Classes', 'Naukri Aspirant', 'Aarambh', 'संवेदा एकेडमी',
+              'MP Exam Study Sphere', 'शिक्षा धाम', 'Ensemble IAS',
+            ].map((name, i) => (
+              <div key={`r2a-${i}`} className={styles.customerBadge}>
+                <UsersIcon width="16" height="16" />
+                {name}
+              </div>
+            ))}
+            {[
+              'Ram Raman Civil Academy', 'JHSS+', 'मणि शिक्षा संस्थान', "The Officer's Academy",
+              'KV Knowledge Villa', 'World Hunter Academy', 'Hello Classes', 'La Win All Classes',
+              'Abhimanyu Academy', 'Jha Sir Academy For IAS', 'Pariksha', 'IAS Academy',
+              'अपराजित IAS Academy Jabalpur', 'Shiksha', 'Bond Classes', 'उड़ान एकेडमी',
+              'Avyan School of IAS', 'Parikshadham Publication', 'Chauhan Academy',
+              'सकल्प Indian Institute', 'Madhav Academy', 'AFP Academy', 'Vinayaka IAS Academy',
+              'GK Trick by Rishi Gupta', 'Krishna Mudgal Classes', 'Select Edu',
+              'Agnihotri Classes', 'Naukri Aspirant', 'Aarambh', 'संवेदा एकेडमी',
+              'MP Exam Study Sphere', 'शिक्षा धाम', 'Ensemble IAS',
+            ].map((name, i) => (
+              <div key={`r2b-${i}`} className={styles.customerBadge}>
+                <UsersIcon width="16" height="16" />
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Education Partners Choose Us */}
       <section className="section">
         <div className="container">

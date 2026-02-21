@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Privacy Policy | Contenu Labs',
-    description: 'Privacy Policy for Contenu Labs (A Unit of NSR EDUSERVE PVT. LTD.) - how we collect, use, and protect your information.',
+    description: 'Privacy Policy for CONTENU LABS MEDIA PVT. LTD. - how we collect, use, and protect your information.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
                     <div>
-                        <p>CONTENU (A Unit of NSR EDUSERVE PVT. LTD.) is a trusted White Label Content Providing company, which offers Test Series, Study Notes, Current Affairs, Magazines &amp; other services as per client&apos;s needs. We follow standard privacy policy for our client base approaching us for their work.</p>
+                        <p>CONTENU LABS MEDIA PVT. LTD. is a trusted White Label Content Providing company, which offers Test Series, Study Notes, Current Affairs, Magazines &amp; other services as per client&apos;s needs. We follow standard privacy policy for our client base approaching us for their work.</p>
                     </div>
 
                     <div>
