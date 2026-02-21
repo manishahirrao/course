@@ -236,7 +236,7 @@ export default function AboutPage() {
                     <div className="section-header">
                         <h2 className="heading-lg">
                             Trusted by{' '}
-                            <span className="text-gradient">500+ Customers</span>
+                            <span className="text-gradient">1000+ Customers</span>
                         </h2>
                         <p className="text-md" style={{ color: 'var(--text-secondary)', marginTop: '8px' }}>
                             Our commitment to excellence has made us a preferred partner for coaching institutes, EdTech platforms, and educational organizations all over India.
@@ -248,7 +248,7 @@ export default function AboutPage() {
                             <p className="text-sm" style={{ color: 'var(--text-muted)', marginTop: '8px' }}>Founded</p>
                         </div>
                         <div className="card" style={{ textAlign: 'center', padding: '36px' }}>
-                            <div className="heading-xl text-gradient">500+</div>
+                            <div className="heading-xl text-gradient">1000+</div>
                             <p className="text-sm" style={{ color: 'var(--text-muted)', marginTop: '8px' }}>Customers</p>
                         </div>
                         <div className="card" style={{ textAlign: 'center', padding: '36px' }}>

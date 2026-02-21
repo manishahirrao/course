@@ -159,17 +159,14 @@ export default function Home() {
               { icon: <BookIcon width="32" height="32" />, title: 'CBSE Class 6-12', sub: 'All Subjects', desc: 'NCERT-aligned study materials for Classes 6-12 covering all subjects', slug: 'cbse-class-6-12-study-material' },
               { icon: <AcademicCapIcon width="32" height="32" />, title: 'IIT-JEE Study Material', sub: 'Main & Advanced', desc: 'Complete JEE preparation with Physics, Chemistry, and Mathematics', slug: 'jee-main-study-material' },
             ].map((product) => (
-              <Link href={`/products/${product.slug}`} key={product.slug} className={styles.productCard}>
+              <div key={product.slug} className={styles.productCard} style={{ cursor: 'default' }}>
                 <div className={styles.productIcon} style={{ marginBottom: '8px' }}>{product.icon}</div>
                 <div>
                   <h3 className="heading-md" style={{ fontSize: '1.25rem', marginBottom: '8px' }}>{product.title}</h3>
                   <p className="text-sm" style={{ color: 'var(--accent-blue)', fontWeight: '600', marginBottom: '12px' }}>{product.sub}</p>
                   <p className="text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '16px' }}>{product.desc}</p>
                 </div>
-                <div className={styles.viewDetails}>
-                  View Details <span style={{ transition: 'transform 0.2s' }}>→</span>
-                </div>
-              </Link>
+              </div>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '40px' }}>
