@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+import { getSupabaseClient, isSupabaseConfigured } from '@/lib/supabase';
 
 export async function GET(
     request: NextRequest,
@@ -31,7 +31,7 @@ export async function GET(
             });
         }
 
-        const { data, error } = await supabase
+        const { data, error } = await getSupabaseClient()
             .from('products')
             .select('*')
             .eq('slug', slug)

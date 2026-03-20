@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+import { getSupabaseClient, isSupabaseConfigured } from '@/lib/supabase';
 
 export async function GET(request: NextRequest) {
     try {
@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
         }
 
         // Build query
+        const supabase = getSupabaseClient();
         let query = supabase
             .from('products')
             .select('*')

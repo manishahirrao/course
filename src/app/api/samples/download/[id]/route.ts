@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+import { getSupabaseClient, isSupabaseConfigured } from '@/lib/supabase';
 
 export async function POST(
     request: NextRequest,
@@ -26,6 +26,7 @@ export async function POST(
 
         // Increment download count using RPC or separate query
         // First get current count
+        const supabase = getSupabaseClient();
         const { data: currentData, error: fetchError } = await supabase
             .from('content_samples')
             .select('download_count')
