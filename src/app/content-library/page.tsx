@@ -1,59 +1,34 @@
+'use client';
+
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: 'Content Library | Free Sample Study Materials | Contenu Labs',
-    description: 'Download free sample study materials, mock tests, and question banks to preview our content quality.',
-};
-
-const samples = [
-    {
-        icon: '🏦',
-        title: 'Banking White-Label Study Materials',
-        category: 'Banking',
-        items: [
-            'IBPS PO Complete Study Material Sample',
-            'SBI Clerk Practice Set with Solutions',
-            'RBI Grade B Quantitative Aptitude Notes',
-            'Banking Current Affairs Monthly Digest',
-        ],
-    },
-    {
-        icon: '🏛️',
-        title: 'SSC White-Label Study Materials',
-        category: 'SSC',
-        items: [
-            'SSC CGL General Awareness Notes',
-            'SSC CHSL English Language Practice',
-            'SSC MTS Reasoning Sample Paper',
-            'SSC CPO Quantitative Aptitude Guide',
-        ],
-    },
-    {
-        icon: '📚',
-        title: 'CBSE White-Label Study Materials',
-        category: 'CBSE',
-        items: [
-            'Class 10 Mathematics Chapter Notes',
-            'Class 12 Physics Practice Problems',
-            'Science Worksheets (Class 6-8)',
-            'English Grammar & Composition Guide',
-        ],
-    },
-    {
-        icon: '⚙️',
-        title: 'JEE/NEET Study Materials',
-        category: 'Engineering',
-        items: [
-            'JEE Main Physics Formula Sheet',
-            'JEE Advanced Chemistry Practice Set',
-            'NEET Biology Chapter Summary',
-            'Mathematics Problem Set (Calculus)',
-        ],
-    },
-];
+import { useSamples, trackDownload } from '@/hooks/useSamples';
 
 export default function ContentLibraryPage() {
+    const { samples, loading, error } = useSamples();
+
+    const handleDownload = async (sampleId: string, fileUrl?: string) => {
+        // Track the download
+        await trackDownload(sampleId);
+        
+        // If file URL exists, trigger download
+        if (fileUrl) {
+            window.open(fileUrl, '_blank');
+        } else {
+            // Fallback - show contact form
+            window.location.href = '/contact';
+        }
+    };
+
+    const getCategoryIcon = (category: string) => {
+        switch (category.toLowerCase()) {
+            case 'banking': return '🏦';
+            case 'ssc': return '🏛️';
+            case 'cbse': return '📚';
+            case 'jee':
+            case 'neet': return '⚙️';
+            default: return '📄';
+        }
+    };
     return (
         <>
             <section style={{ padding: '80px 0 40px', background: 'var(--gradient-hero)', position: 'relative' }}>
@@ -71,44 +46,59 @@ export default function ContentLibraryPage() {
 
             <section className="section">
                 <div className="container">
-                    <div className="grid-2" style={{ gap: '32px' }}>
-                        {samples.map((sample) => (
-                            <div key={sample.title} className="card" style={{ padding: '32px' }}>
-                                <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                                    <div style={{ fontSize: '2.5rem' }}>{sample.icon}</div>
-                                    <div style={{ flex: 1 }}>
-                                        <span className="badge badge-red">FREE PDF</span>
-                                        <h3 className="heading-sm" style={{ marginTop: '12px' }}>{sample.title}</h3>
-                                        <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                            {sample.items.map((item) => (
-                                                <div
-                                                    key={item}
-                                                    style={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'space-between',
-                                                        gap: '12px',
-                                                        padding: '10px 16px',
-                                                        background: 'var(--bg-primary)',
-                                                        borderRadius: 'var(--radius-sm)',
-                                                        border: '1px solid var(--border-color)',
-                                                    }}
-                                                >
-                                                    <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{item}</span>
-                                                    <button
-                                                        className="btn btn-secondary btn-sm"
-                                                        style={{ flexShrink: 0, padding: '6px 14px', fontSize: '0.75rem' }}
-                                                    >
-                                                        Preview
-                                                    </button>
+                    {loading ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p>Loading content samples...</p>
+                        </div>
+                    ) : error ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p style={{ color: 'var(--accent-red)' }}>Error: {error}</p>
+                        </div>
+                    ) : samples.length === 0 ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p>No content samples available at the moment.</p>
+                        </div>
+                    ) : (
+                        <div className="grid-2" style={{ gap: '32px' }}>
+                            {samples.map((sample) => (
+                                <div key={sample.id} className="card" style={{ padding: '32px' }}>
+                                    <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                                        <div style={{ fontSize: '2.5rem' }}>{getCategoryIcon(sample.category)}</div>
+                                        <div style={{ flex: 1 }}>
+                                            <span className="badge badge-red">FREE PDF</span>
+                                            <h3 className="heading-sm" style={{ marginTop: '12px' }}>{sample.title}</h3>
+                                            <p className="text-sm" style={{ color: 'var(--text-muted)', marginTop: '8px' }}>
+                                                {sample.description}
+                                            </p>
+                                            <div style={{ 
+                                                display: 'flex', 
+                                                alignItems: 'center', 
+                                                justifyContent: 'space-between',
+                                                marginTop: '16px',
+                                                padding: '12px 16px',
+                                                background: 'var(--bg-primary)',
+                                                borderRadius: 'var(--radius-sm)',
+                                                border: '1px solid var(--border-color)',
+                                            }}>
+                                                <div>
+                                                    <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                                                        Downloads: {sample.download_count.toLocaleString()}
+                                                    </span>
                                                 </div>
-                                            ))}
+                                                <button
+                                                    className="btn btn-primary btn-sm"
+                                                    onClick={() => handleDownload(sample.id, sample.file_url)}
+                                                    style={{ flexShrink: 0 }}
+                                                >
+                                                    Download PDF
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 

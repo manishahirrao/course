@@ -3,24 +3,25 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-
-const studyMaterials = [
-    { icon: '🏦', title: 'Banking Study Material', sub: 'IBPS, SBI, RBI', desc: 'Complete study materials for all banking exams with PYQs and practice papers', badge: 'Bestseller', badgeClass: 'badge-orange', slug: 'ibps-po-study-material' },
-    { icon: '🏛️', title: 'SSC Study Material', sub: 'CGL, CHSL, MTS', desc: 'Comprehensive SSC exam preparation materials with detailed solutions', badge: 'Popular', badgeClass: 'badge-blue', slug: 'ssc-cgl-study-material' },
-    { icon: '📚', title: 'CBSE Class 6-12', sub: 'All Subjects', desc: 'NCERT-aligned study materials for Classes 6-12 covering all subjects', badge: 'New', badgeClass: 'badge-green', slug: 'cbse-class-6-12-study-material' },
-    { icon: '⚙️', title: 'IIT-JEE Study Material', sub: 'Main & Advanced', desc: 'Complete JEE preparation with Physics, Chemistry, and Mathematics', badge: 'Premium', badgeClass: 'badge-purple', slug: 'jee-main-study-material' },
-];
-
-const mockTests = [
-    { icon: '🏦', title: 'Banking Mock Tests', sub: 'IBPS, SBI, RBI', desc: 'Full-length mock tests for all banking exams with detailed solutions', badge: 'Bestseller', badgeClass: 'badge-orange', slug: 'banking-mock-tests' },
-    { icon: '🏛️', title: 'SSC Mock Tests', sub: 'CGL, CHSL, MTS', desc: 'Comprehensive mock test series for SSC exams', badge: 'Popular', badgeClass: 'badge-blue', slug: 'ssc-mock-tests' },
-];
+import { useProducts } from '@/hooks/useProducts';
 
 function ProductsContent() {
     const searchParams = useSearchParams();
     const tab = searchParams.get('tab') || 'study-materials';
+    
+    const { products, loading, error } = useProducts({ 
+        category: tab as 'study-materials' | 'mock-tests' 
+    });
 
-    const products = tab === 'mock-tests' ? mockTests : studyMaterials;
+    const getBadgeClass = (badge?: string) => {
+        switch (badge) {
+            case 'Bestseller': return 'badge-orange';
+            case 'Popular': return 'badge-blue';
+            case 'New': return 'badge-green';
+            case 'Premium': return 'badge-purple';
+            default: return 'badge-gray';
+        }
+    };
 
     return (
         <>
@@ -56,22 +57,45 @@ function ProductsContent() {
                     </div>
 
                     {/* Products Grid */}
-                    <div className="grid-3">
-                        {products.map((product) => (
-                            <div key={product.slug} className="card" style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                    <span className={`badge ${product.badgeClass}`}>{product.badge}</span>
+                    {loading ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p>Loading products...</p>
+                        </div>
+                    ) : error ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p style={{ color: 'var(--accent-red)' }}>Error: {error}</p>
+                        </div>
+                    ) : products.length === 0 ? (
+                        <div style={{ textAlign: 'center', padding: '48px' }}>
+                            <p>No products found in this category.</p>
+                        </div>
+                    ) : (
+                        <div className="grid-3">
+                            {products.map((product) => (
+                                <div key={product.slug} className="card" style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                        {product.badge && (
+                                            <span className={`badge ${getBadgeClass(product.badge)}`}>
+                                                {product.badge}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div style={{ fontSize: '2.5rem' }}>{product.icon}</div>
+                                    <h3 className="heading-sm">{product.title}</h3>
+                                    <p className="text-sm" style={{ color: 'var(--accent-blue-light)' }}>{product.exam_type}</p>
+                                    <p className="text-sm" style={{ color: 'var(--text-muted)', flex: 1 }}>{product.description}</p>
+                                    {product.price && (
+                                        <p className="text-lg" style={{ fontWeight: 600, color: 'var(--accent-green)' }}>
+                                            ₹{product.price.toLocaleString()}
+                                        </p>
+                                    )}
+                                    <Link href="/contact" className="btn btn-primary" style={{ marginTop: '12px', width: '100%' }}>
+                                        Get Quote
+                                    </Link>
                                 </div>
-                                <div style={{ fontSize: '2.5rem' }}>{product.icon}</div>
-                                <h3 className="heading-sm">{product.title}</h3>
-                                <p className="text-sm" style={{ color: 'var(--accent-blue-light)' }}>{product.sub}</p>
-                                <p className="text-sm" style={{ color: 'var(--text-muted)', flex: 1 }}>{product.desc}</p>
-                                <Link href="/contact" className="btn btn-primary" style={{ marginTop: '12px', width: '100%' }}>
-                                    Get Quote
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </>

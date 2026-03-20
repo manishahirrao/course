@@ -11,13 +11,27 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
+        
         try {
-            const subject = encodeURIComponent(`Contact from ${formData.name} - ${formData.company || 'N/A'}`);
-            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`);
-            window.open(`mailto:info@contenulabs.com?subject=${subject}&body=${body}`, '_self');
-            setStatus('success');
-            setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-        } catch {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+            } else {
+                console.error('Contact form error:', result.error);
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error('Contact form submission failed:', error);
             setStatus('error');
         }
     };
