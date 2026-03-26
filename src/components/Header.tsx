@@ -86,7 +86,7 @@ export default function Header() {
                 {/* CTA Buttons */}
                 <div className={styles.ctas}>
                     <Link href="/content-library" className={`btn btn-secondary btn-sm ${styles.ctaBtn}`}>View Samples</Link>
-                    <Link href="/login" className={`btn btn-primary btn-sm ${styles.ctaBtn}`}>Login</Link>
+                    <Link href="/admin/login" className={`btn btn-primary btn-sm ${styles.ctaBtn}`}>Admin Login</Link>
                 </div>
 
                 {/* Mobile Hamburger */}
@@ -140,7 +140,7 @@ export default function Header() {
                         <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact</Link>
                         <div className={styles.mobileCtas}>
                             <Link href="/content-library" className="btn btn-secondary" onClick={() => setMobileOpen(false)}>Samples</Link>
-                            <Link href="/login" className="btn btn-primary" onClick={() => setMobileOpen(false)}>Login</Link>
+                            <Link href="/admin/login" className="btn btn-primary" onClick={() => setMobileOpen(false)}>Admin Login</Link>
                         </div>
                     </div>
                 )}

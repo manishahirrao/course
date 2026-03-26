@@ -17,7 +17,13 @@ export default function LoginPage() {
         setError('');
 
         try {
-            // Supabase Auth would go here when configured
+            // Check for mock credentials first to bypass any dead Supabase URLs in .env
+            if (email === 'admin@contenulabs.com' && password === 'admin123') {
+                window.location.href = '/admin';
+                return;
+            }
+
+            // Supabase Auth
             const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
             if (supabaseUrl && supabaseUrl !== 'your_supabase_project_url') {
                 const { createClient } = await import('@supabase/supabase-js');
@@ -29,10 +35,10 @@ export default function LoginPage() {
                 if (authError) {
                     setError(authError.message);
                 } else {
-                    window.location.href = '/';
+                    window.location.href = '/admin';
                 }
             } else {
-                setError('Authentication is not configured yet. Please update your Supabase credentials.');
+                setError('Supabase not configured. For demo access, use: admin@contenulabs.com / admin123');
             }
         } catch {
             setError('An unexpected error occurred. Please try again.');
@@ -55,9 +61,9 @@ export default function LoginPage() {
                             />
                         </div>
                     </Link>
-                    <h1 className="heading-md" style={{ marginTop: '20px' }}>Partner Login</h1>
+                    <h1 className="heading-md" style={{ marginTop: '20px' }}>Admin Login</h1>
                     <p className="text-sm" style={{ color: 'var(--text-muted)', marginTop: '8px' }}>
-                        Access your dashboard to manage content and orders.
+                        Access the admin dashboard to manage website details.
                     </p>
                 </div>
 
@@ -95,8 +101,7 @@ export default function LoginPage() {
                 </form>
 
                 <p className="text-sm" style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: '24px' }}>
-                    Don&apos;t have a partner account?{' '}
-                    <Link href="/contact" style={{ color: 'var(--accent-blue-light)', fontWeight: 500 }}>Contact us</Link>
+                    <Link href="/" style={{ color: 'var(--accent-blue-light)', fontWeight: 500 }}>&larr; Return to Home</Link>
                 </p>
             </div>
         </div>
